@@ -1,0 +1,22 @@
+name =  Michel
+class = brute
+action_points = 10
+health_points = 5
+moving_range = 5
+energy_slots = 2
+shooting_range = 0
+shooting_power = 0
+shooting_cost = 0
+meelee_range = 1
+meelee_power = 2
+meelee_cost = 2
+special_range = 1
+special_power = 3
+special_cost = 3
+move_water_sensitive = true
+move_elevation_sensitive = true
+move_forest_sensitive = true
+attack_water_sensitive = true
+attack_elevation_sensitive = true
+attack_forest_sensitive = true
+

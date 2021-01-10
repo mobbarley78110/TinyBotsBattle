@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://scenes/RobotsTiles.gd" type="Script" id=2]
+[ext_resource path="res://scripts/LandTiles.gd" type="Script" id=3]
+[ext_resource path="res://scenes/MoveTiles.gd" type="Script" id=5]
+
+[sub_resource type="TileSet" id=1]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="PlayerTurn" type="Label" parent="ui"]
+margin_left = 192.0
+margin_top = 24.0
+margin_right = 256.0
+margin_bottom = 38.0
+text = "Player 1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tex" type="ColorRect" parent="ui"]
+margin_left = 152.0
+margin_top = 240.0
+margin_right = 320.0
+margin_bottom = 278.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pass" type="Button" parent="ui/tex"]
+margin_left = 96.0
+margin_top = 9.0
+margin_right = 160.0
+margin_bottom = 29.0
+text = "Pass"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="Button" parent="ui/tex"]
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 72.0
+margin_bottom = 29.0
+text = "Attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PointsLeft" type="Label" parent="ui"]
+margin_left = 184.0
+margin_top = 40.0
+margin_right = 257.0
+margin_bottom = 54.0
+text = "Points left: "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMaps" type="Node2D" parent="."]
+position = Vector2( 224, 64 )
+
+[node name="MousePosition" type="Label" parent="TileMaps"]
+margin_left = -216.0
+margin_top = 200.0
+margin_right = -168.0
+margin_bottom = 214.0
+text = "mouse"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Land" type="TileMap" parent="TileMaps"]
+mode = 1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 16 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1
+script = ExtResource( 3 )
+
+[node name="Move" type="TileMap" parent="TileMaps"]
+mode = 1
+cell_size = Vector2( 32, 16 )
+cell_y_sort = true
+format = 1
+script = ExtResource( 5 )
+
+[node name="Robots" type="TileMap" parent="TileMaps"]
+mode = 1
+cell_size = Vector2( 32, 16 )
+cell_y_sort = true
+format = 1
+script = ExtResource( 2 )
+[connection signal="button_up" from="ui/tex/Pass" to="." method="_on_Button_button_up"]

@@ -1,0 +1,5 @@
+red 982649
+gray 7C8483
+light blue 71A2B6
+blue 60B2E5
+teal 53F4FF
